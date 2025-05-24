@@ -1,0 +1,50 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow p-4">
+      <div class="container mx-auto">
+        <h1 class="text-2xl font-bold text-blue-600">QR Code Generator</h1>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      {% block content %}
+      <div class="flex justify-center items-center min-h-[70vh] mt-5">
+  <form
+    action="{% url 'generate_qr_code' %}"
+    method="POST"
+    class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg"
+  >
+    {% csrf_token %}
+    <h2 class="text-xl font-semibold mb-4 text-gray-700 text-center">Enter Data to Generate QR Code</h2>
+    
+     {{ form.as_p}}
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
+    >
+      Generate QR Code
+    </button>
+  </form>
+</div>
+
+      {% endblock %}
+    </main>
+
+    <!-- Footer (optional) -->
+    <footer class="bg-white text-center text-sm text-gray-500 p-4 border-t">
+      &copy; {{ now|date:"Y" }} QR Generator by YourName
+    </footer>
+  </body>
+</html>

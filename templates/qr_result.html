@@ -1,0 +1,15 @@
+<!-- templates/qr_result.html -->
+{% extends "generate_qr_code.html" %}
+
+{% block content %}
+<div class="max-w-xl mx-auto mt-20 text-center bg-white shadow-md rounded-lg p-8">
+  <h2 class="text-2xl font-bold text-gray-700 mb-6">QR Code for:</h2>
+  <p class="text-lg text-blue-600 font-medium mb-4 break-words">{{ res_name }}</p>
+  <img src="{{ qr_url }}" alt="Generated QR Code" class="mx-auto w-64 h-64 object-contain border border-gray-200 rounded" />
+  <button
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded"
+    >
+      <a href="{{ qr_url }}" download="{{ file_name }}">Download QR Code</a>
+    </button>
+</div>
+{% endblock %}
