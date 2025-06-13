@@ -16,10 +16,9 @@ db.sqlite3
 # Static/media collected files
 /staticfiles/
 /media/
+node_modules/
 
 # VS Code and OS files
 .vscode/
 .DS_Store
 Thumbs.db
-
-db.sqlite3/
