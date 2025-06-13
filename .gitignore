@@ -1,1 +1,25 @@
+# Virtual environment
 .venv/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Django secret keys, credentials
+.env
+
+# SQLite DB (optional: don’t upload in production)
+db.sqlite3
+
+# Static/media collected files
+/staticfiles/
+/media/
+
+# VS Code and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+db.sqlite3/
