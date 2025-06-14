@@ -32,3 +32,6 @@ def generate_qr_code(request):
         'form':form,
      }
      return render(request,'generate_qr_code.html',context)
+
+def result(request):
+   return render(request,'qr_result.html')

@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('',views.generate_qr_code , name='generate_qr_code'),
+    path('result/',views.result,name='result')
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
