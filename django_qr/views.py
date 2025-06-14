@@ -16,7 +16,7 @@ def generate_qr_code(request):
             file_path= os.path.join(settings.MEDIA_ROOT,file_name)
             qr.save(file_path)
             
-            qr_url=os.path.join(settings.MEDIA_URL,file_name)
+            qr_url= settings.MEDIA_URL + file_name
 
             context={
                'res_name':res_name,
