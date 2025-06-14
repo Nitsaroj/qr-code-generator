@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['https://qr-code-generator-8v05.onrender.com']
+ALLOWED_HOSTS = ['qr-code-generator-8v05.onrender.com','localhost', '127.0.0.1']
 
 
 # Application definition
