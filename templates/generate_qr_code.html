@@ -1,24 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QR Code Generator</title>
-    <link rel="stylesheet" href="{% static 'css/src/output.css' %}">
-  </head>
-  <body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+{% extends 'base.html' %}
     
-    <!-- Navbar -->
-    <nav class="bg-white shadow p-4">
-      <div class="container mx-auto">
-        <h1 class="text-2xl font-bold text-blue-600">QR Code Generator</h1>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="flex-grow">
-      {% block content %}
+{% block content %}
       <div class="flex justify-center items-center min-h-[70vh] mt-5">
   <form
     action="{% url 'generate_qr_code' %}"
@@ -39,12 +21,6 @@
   </form>
 </div>
 
-      {% endblock %}
-    </main>
+{% endblock %}
 
-    <!-- Footer (optional) -->
-    <footer class="bg-white text-center text-sm text-gray-500 p-4 border-t">
-      &copy; {{ now|date:"Y" }} QR Generator by YourName
-    </footer>
-  </body>
-</html>
+    
