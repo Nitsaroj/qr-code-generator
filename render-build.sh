@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
+set -o errexit
 
-# Install Node.js (v18 LTS, you can adjust)
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y nodejs
+# Python dependencies
+pip install -r requirements.txt
 
-# Install Tailwind CSS CLI globally
-npm install -g tailwindcss
-
-# Run Tailwind CLI build
-tailwindcss -i ./static/css/src/input.css -o ./static/css/src/output.css --minify
+# If Tailwind fails, ignore (for testing)
+if [ -f tailwind.config.js ]; then
+    npx tailwindcss -i ./static/css/src/input.css -o ./static/css/src/output.css --minify || echo "Tailwind failed"
+fi
 
 # Django setup
-pip install -r requirements.txt
 python manage.py collectstatic --no-input
-python manage.py migratechmod +x render-build.sh
+python manage.py migrate
